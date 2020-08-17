@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, input, select, button, textarea {
+  font-family: Poppins, Ubuntu, sans-serif;
+}
