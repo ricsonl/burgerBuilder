@@ -23,7 +23,7 @@ class BurgerBuilder extends Component {
       bacon: 6,
     },
     prices: {
-      salad: 0.5,
+      salad: 0.3,
       cheese: 1.25,
       meat: 2.5,
       bacon: 1.25,
