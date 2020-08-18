@@ -1,10 +1,25 @@
+:root {
+  --grey: #141414;
+  --light-grey: #242424;
+  --lighter-grey: #444444;
+  --white: #ffffee;
+}
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
+  width: 100vw;
+
+  background: radial-gradient(transparent -60%, var(--grey) 120%),
+              url('./assets/wood_back.jpg');  
+  background-size: cover;
+  background-position: center;
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body, input, select, button, textarea {
   font-family: Poppins, Ubuntu, sans-serif;
+  color: var(--white);
 }

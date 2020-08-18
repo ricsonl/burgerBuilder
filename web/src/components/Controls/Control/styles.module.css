@@ -1,0 +1,32 @@
+.Control{
+  width: 60%;
+  max-width: 350px;
+  margin: 8px auto;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-grey);
+  box-shadow: 5px 5px 5px var(--grey);
+}
+.Buttons{
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+.Buttons button{
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font: 400 1.2rem Poppins;
+}
+.Buttons button p{
+  margin: 0;
+}
+.Control button:hover{
+  background: var(--lighter-grey);
+}
