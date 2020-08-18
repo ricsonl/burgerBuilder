@@ -9,6 +9,7 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 
   background: radial-gradient(transparent -60%, var(--grey) 120%),
               url('./assets/wood_back.jpg');  

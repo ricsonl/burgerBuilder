@@ -1,0 +1,22 @@
+.BurgerBuilder{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center
+}
+.BurgerBuilder > div:last-child {
+  margin: 10% 0;
+}
+.BurgerBuilder > div:first-child {
+  margin: 5% 0;
+}
+@media (min-width: 700px){
+  .BurgerBuilder{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+  }
+  .BurgerBuilder > div:first-child {
+    margin: 0 5%;
+  }
+}

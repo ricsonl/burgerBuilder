@@ -5,6 +5,8 @@ import IngredientsContext from '../../context/IngredientsContext';
 import Burger from '../../components/Burger';
 import Controls from '../../components/Controls';
 
+import styles from './styles.module.css';
+
 class BurgerBuilder extends Component {
 
   state = {
@@ -44,7 +46,7 @@ class BurgerBuilder extends Component {
 
   render() {
     return (
-      <>
+      <section className={styles.BurgerBuilder}>
         <IngredientsContext.Provider value={{
           ingredients: this.state.ingredients,
           max: this.state.max,
@@ -54,7 +56,7 @@ class BurgerBuilder extends Component {
           <Burger />
           <Controls />
         </IngredientsContext.Provider>
-      </>
+      </section>
     );
   }
 };
