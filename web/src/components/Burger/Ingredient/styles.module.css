@@ -1,9 +1,9 @@
 .BreadBottom {
-    height: 70px;
+    height: 60px;
     width: 330px;
     flex-shrink: 0;
     background: linear-gradient(#F08E4A, #e27b36);
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 45px 45px;
     box-shadow: inset -15px 0 #c15711;
     margin: 2px auto;
 }
@@ -13,7 +13,7 @@
     width: 330px;
     flex-shrink: 0;
     background: linear-gradient(#bc581e, #e27b36);
-    border-radius: 50% 50% 0 0;
+    border-radius: 98px 98px 0 0;
     box-shadow: inset -15px 0 #c15711;
     margin: 2px auto;
     position: relative;
@@ -121,7 +121,7 @@
 }
 @media (max-width: 380px) {
   .BreadBottom {
-    height: 35px;
+    height: 30px;
     width: 165px;
     margin: 1px auto;
 }

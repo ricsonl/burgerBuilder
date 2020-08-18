@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import IngredientContext from '../../context/IngredientsContext';
 
 import Ingredient from './Ingredient';
 
 import styles from './styles.module.css';
 
-const Burger = (props) => {
-  let convertedIngredients = Object.keys(props.ingredients)
+const Burger = () => {
+
+  const ingredientsContext = useContext(IngredientContext);
+
+  let convertedIngredients = Object.keys(ingredientsContext.ingredients)
     .map(ingName => {
-      return [...Array(props.ingredients[ingName])].map((_, i) => {
+      return [...Array(ingredientsContext.ingredients[ingName])].map((_, i) => {
         return <Ingredient key={ingName + i} type={ingName}/>
       });
     })
@@ -19,6 +23,7 @@ const Burger = (props) => {
   if(convertedIngredients.length == 0){
     convertedIngredients = <p>Start adding ingredients!</p>
   }
+
   return (
     <div className={styles.Burger}>
       <Ingredient type="bread-top" />

@@ -4,6 +4,7 @@
   margin: 8px auto;
   padding: 5px 15px;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   background-color: var(--light-grey);
@@ -13,6 +14,12 @@
   width: 30%;
   display: flex;
   justify-content: space-between;
+}
+.Red{
+  color: #882323;
+}
+.Grey{
+  color: var(--grey);
 }
 .Buttons button{
   background: transparent;
@@ -29,4 +36,9 @@
 }
 .Control button:hover{
   background: var(--lighter-grey);
+}
+@media (min-width: 381px){
+  .Control, .Buttons p{
+    font-size: 1.3rem;
+  }
 }
