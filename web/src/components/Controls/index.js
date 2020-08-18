@@ -1,17 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Control from './Control';
 
 import styles from './styles.module.css';
 
-const Controls = (props) => {
+const Controls = () => {
+  const controls = [
+    {label: 'Meat', name: 'meat'},
+    {label: 'Cheese', name: 'cheese'},
+    {label: 'Salad', name: 'salad'},
+    {label: 'Bacon', name: 'bacon'},
+  ];
   return(
       <div className={styles.Controls}>
-        <Control label="Meat" name="meat"/>
-        <Control label="Cheese" name="cheese"/>
-        <Control label="Salad" name="salad"/>
-        <Control label="Bacon" name="bacon"/>
+        {
+          controls.map(ctrl => {
+            return <Control key={ctrl.name} label={ctrl.label} name={ctrl.name} />
+          })
+        }
       </div>
   );
 };

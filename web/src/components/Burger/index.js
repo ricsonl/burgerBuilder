@@ -20,7 +20,7 @@ const Burger = () => {
       return arr.concat(el);
     }, []);
     
-  if(convertedIngredients.length == 0){
+  if(convertedIngredients.length === 0){
     convertedIngredients = <p>Start adding ingredients!</p>
   }
 
