@@ -15,6 +15,7 @@ const Controls = () => {
     { label: 'Alface', name: 'salad' },
     { label: 'Bacon', name: 'bacon' },
   ];
+  console.log()
   return (
     <div className={styles.Controls}>
       {
@@ -23,14 +24,21 @@ const Controls = () => {
         })
       }
       {
-        true &&
         <div className={styles.PriceAndCheckout}>
-          <h1>R$ {ingredientsContext.total.toFixed(2).toString().split('.').join(',')}</h1>
-          <button>
-            <p>Continuar</p>
-            <svg><use xlinkHref="#icon-arrow_back"></use></svg>
-          </button>
+          {
+            (
+              Object.values(ingredientsContext.ingredients).reduce((sum, val) => sum + val, 0) > 0 &&
+              <>
+                <h1>R$ {ingredientsContext.total.toFixed(2).toString().split('.').join(',')}</h1>
+                <button>
+                  <p>Continuar</p>
+                  <svg><use xlinkHref="#icon-arrow_back"></use></svg>
+                </button>
+              </>
+            ) || <h1>R$ --,--</h1>
+          }
         </div>
+
       }
     </div>
   );

@@ -4,7 +4,6 @@
   height: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 .Burger p{
   text-align: center;
@@ -16,5 +15,10 @@
   .Burger p{
     font-size: 1.6rem;
     margin: 4px;
+  }
+}
+@media (min-width: 701px){
+  .Burger{
+    align-self: flex-start;
   }
 }
