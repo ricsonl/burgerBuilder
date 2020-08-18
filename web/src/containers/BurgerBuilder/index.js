@@ -22,6 +22,13 @@ class BurgerBuilder extends Component {
       meat: 4,
       bacon: 6,
     },
+    prices: {
+      salad: 0.5,
+      cheese: 1.25,
+      meat: 2.5,
+      bacon: 1.25,
+    },
+    total: 4,
   };
 
   addIngredient = (ing) => {
@@ -30,6 +37,7 @@ class BurgerBuilder extends Component {
       newIng[ing]++;
       this.setState({
         ingredients: newIng,
+        total: this.state.total + this.state.prices[ing],
       });
     }
   };
@@ -40,6 +48,7 @@ class BurgerBuilder extends Component {
       newIng[ing]--;
       this.setState({
         ingredients: newIng,
+        total: this.state.total - this.state.prices[ing],
       });
     }
   };
@@ -51,7 +60,8 @@ class BurgerBuilder extends Component {
           ingredients: this.state.ingredients,
           max: this.state.max,
           add: this.addIngredient,
-          remove: this.removeIngredient
+          remove: this.removeIngredient,
+          total: this.state.total,
         }}>
           <Burger />
           <Controls />

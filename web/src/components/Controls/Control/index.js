@@ -5,7 +5,7 @@ import IngredientContext from '../../../context/IngredientsContext';
 import styles from './styles.module.css';
 
 const Control = ({ label, name }) => {
-
+  
   const ingredientContext = useContext(IngredientContext);
 
   return (

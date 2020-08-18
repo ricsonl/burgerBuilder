@@ -9,16 +9,11 @@ const IngredientsContext = React.createContext({
     bacon: 0,
   },
 
-  max: {
-    salad: 99,
-    cheese: 99,
-    meat: 99,
-    bacon: 99,
-  },
-
   add: undefined,
 
   remove: undefined,
+
+  total: 0,
 });
 
 export default IngredientsContext;

@@ -2,10 +2,8 @@
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
-  align-items: center
-}
-.BurgerBuilder > div:last-child {
-  margin: 10% 0;
+  align-items: center;
+  margin-top: 10%;
 }
 .BurgerBuilder > div:first-child {
   margin: 5% 0;

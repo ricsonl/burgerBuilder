@@ -13,21 +13,21 @@ const Burger = () => {
   let convertedIngredients = Object.keys(ingredientsContext.ingredients)
     .map(ingName => {
       return [...Array(ingredientsContext.ingredients[ingName])].map((_, i) => {
-        return <Ingredient key={ingName + i} type={ingName}/>
+        return <Ingredient key={ingName + i} type={ingName} />
       });
     })
     .reduce((arr, el) => {
       return arr.concat(el);
     }, []);
-    
-  if(convertedIngredients.length === 0){
+
+  if (convertedIngredients.length === 0) {
     convertedIngredients = <p>Start adding ingredients!</p>
   }
 
   return (
     <div className={styles.Burger}>
       <Ingredient type="bread-top" />
-      { convertedIngredients }
+      {convertedIngredients}
       <Ingredient type="bread-bottom" />
     </div>
   );
