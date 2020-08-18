@@ -21,7 +21,7 @@ const Burger = () => {
     }, []);
 
   if (convertedIngredients.length === 0) {
-    convertedIngredients = <p>Start adding ingredients!</p>
+    convertedIngredients = <p>Adicione ingredientes!</p>
   }
 
   return (

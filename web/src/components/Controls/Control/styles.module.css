@@ -9,6 +9,7 @@
   align-items: center;
   background-color: var(--light-grey);
   box-shadow: 5px 5px 5px var(--grey);
+  border-radius: 3px;
 }
 .Buttons{
   width: 30%;
@@ -30,6 +31,7 @@
   width: 30px;
   height: 30px;
   font: 400 1.2rem Poppins;
+  transition: background-color .3s;
 }
 .Buttons button p{
   margin: 0;

@@ -9,3 +9,59 @@
   border-radius: 5px;
   align-self: flex-start;
 }
+.PriceAndCheckout{
+  width: 60%;
+  margin: 5% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+.PriceAndCheckout h1{
+  margin: 10% 0;
+  text-align: center;
+}
+.PriceAndCheckout button{
+  background-color: var(--green);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  transition: background-color .2s ease-out;
+}
+.PriceAndCheckout button p{
+  transition: transform .2s ease-out;
+}
+.PriceAndCheckout button svg{
+  height: 25px;
+  width: 25px;
+  stroke: none;
+  fill: var(--white);
+  position: absolute;
+  right: 5%;
+  opacity: 0;
+  transition: transform .2s ease-out,
+              opacity .2s ease-out,
+              position .2s ease-out;
+}
+.PriceAndCheckout button:hover{
+  background-color: var(--light-green);
+}
+.PriceAndCheckout button:hover p{
+  transform: translateX(-12px);
+}
+.PriceAndCheckout button:hover svg{
+  transform: rotateZ(180deg);
+  opacity: 1;
+}
+@media (min-width: 701px){
+  .PriceAndCheckout h1{
+    font-size: 2.2rem;
+  }
+}

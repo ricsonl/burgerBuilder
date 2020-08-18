@@ -10,9 +10,9 @@ const Controls = () => {
   const ingredientsContext = useContext(IngredientsContext)
 
   const controls = [
-    { label: 'Meat', name: 'meat' },
-    { label: 'Cheese', name: 'cheese' },
-    { label: 'Salad', name: 'salad' },
+    { label: 'Carne', name: 'meat' },
+    { label: 'Queijo', name: 'cheese' },
+    { label: 'Alface', name: 'salad' },
     { label: 'Bacon', name: 'bacon' },
   ];
   return (
@@ -22,7 +22,16 @@ const Controls = () => {
           return <Control key={ctrl.name} label={ctrl.label} name={ctrl.name} />
         })
       }
-      <h1>R$ {ingredientsContext.total.toFixed(2).toString().split('.').join(',')}</h1>
+      {
+        true &&
+        <div className={styles.PriceAndCheckout}>
+          <h1>R$ {ingredientsContext.total.toFixed(2).toString().split('.').join(',')}</h1>
+          <button>
+            <p>Continuar</p>
+            <svg><use xlinkHref="#icon-arrow_back"></use></svg>
+          </button>
+        </div>
+      }
     </div>
   );
 };
