@@ -3,11 +3,15 @@ import React, { Component } from "react";
 import IngredientsContext from '../../context/IngredientsContext';
 
 import Burger from '../../components/Burger';
-import Controls from '../../components/Controls';
+import Controls from '../../components/Burger/Controls';
+import Modal from '../../components/UI/Modal';
+import OrderSummary from '../../components/Burger/OrderSummary';
 
 import styles from './styles.module.css';
 
 class BurgerBuilder extends Component {
+
+  static contextType = IngredientsContext;
 
   state = {
     ingredients: {
@@ -16,55 +20,63 @@ class BurgerBuilder extends Component {
       meat: 0,
       bacon: 0,
     },
-    max: {
-      salad: 3,
-      cheese: 5,
-      meat: 4,
-      bacon: 6,
-    },
-    prices: {
-      salad: 0.3,
-      cheese: 1.25,
-      meat: 2.5,
-      bacon: 1.25,
-    },
+
     total: 4,
+    purchasable: false,
+
+    finishing: false,
   };
 
   addIngredient = (ing) => {
     const newIng = { ...this.state.ingredients }
-    if(newIng[ing] < this.state.max[ing]){
+    if (newIng[ing] < this.context.max[ing]) {
       newIng[ing]++;
       this.setState({
         ingredients: newIng,
-        total: this.state.total + this.state.prices[ing],
+        total: this.state.total + this.context.prices[ing],
+        purchasable: Object.values(newIng).reduce((sum, val) => sum + val, 0) > 0
       });
     }
   };
 
   removeIngredient = (ing) => {
     const newIng = { ...this.state.ingredients }
-    if(newIng[ing] > 0){
+    if (newIng[ing] > 0) {
       newIng[ing]--;
       this.setState({
         ingredients: newIng,
-        total: this.state.total - this.state.prices[ing],
+        total: this.state.total - this.context.prices[ing],
+        purchasable: Object.values(newIng).reduce((sum, val) => sum + val, 0) > 0
       });
     }
   };
+
+  handleToggleModal = (vis) => {
+    this.setState({ finishing: vis })
+  }
 
   render() {
     return (
       <section className={styles.BurgerBuilder}>
         <IngredientsContext.Provider value={{
+          max: this.context.max,
+          prices: this.context.prices,
+          labels: this.context.labels,
+
           ingredients: this.state.ingredients,
-          max: this.state.max,
           add: this.addIngredient,
           remove: this.removeIngredient,
           total: this.state.total,
+          purchasable: this.state.purchasable,
         }}>
           <Burger />
-          <Controls />
+          <Controls toggleModal={this.handleToggleModal}/>
+          <Modal
+            finishing={this.state.finishing}
+            toggleModal={this.handleToggleModal}
+          >
+            <OrderSummary />
+          </Modal>
         </IngredientsContext.Provider>
       </section>
     );

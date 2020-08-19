@@ -1,0 +1,62 @@
+.Modal::before{
+  content: '';
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  background-color: var(--grey);
+  opacity: .6;
+}
+.Modal {
+    display: none;
+    position: fixed;
+    z-index: 500;
+    background-color: var(--light-grey);
+    box-shadow: 5px 5px 5px var(--grey);
+    border-radius: 3px;
+    width: 80%;
+    padding: 16px;
+    left: 10%;
+    top: 30%;
+    box-sizing: border-box;
+    transition: all .2s ease-out;
+}
+.Modal h3{
+  text-align: center;
+  margin: 0 auto;
+}
+.Modal button{
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 35px;
+  height: 35px;
+}
+.Modal button svg{
+  height: 22px;
+  width: 22px;
+  fill: var(--white);
+}
+.Modal button:hover{
+  background-color: var(--light-grey);
+}
+.Visible{
+  display: initial;
+}
+
+@media (min-width: 600px){
+    .Modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+}
