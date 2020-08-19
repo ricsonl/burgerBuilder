@@ -24,11 +24,11 @@
     width: 80%;
     padding: 16px;
     left: 10%;
-    top: 30%;
+    top: 10%;
     box-sizing: border-box;
     transition: transform .2s ease-out;
 }
-.Modal button{
+.Modal > button:first-child{
   position: absolute;
 }
 .Modal h3{
@@ -43,5 +43,6 @@
     .Modal {
         width: 500px;
         left: calc(50% - 250px);
+        top: 20%
     }
 }

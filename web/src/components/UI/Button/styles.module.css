@@ -1,0 +1,23 @@
+.Button {
+  background-color: var(--grey);
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 8px;
+  font-weight: bold;
+  transition: background-color .2s ease-out;
+}
+
+.Button:hover{
+  background-color: var(--lighter-grey);
+}
+
+.Success {
+  color: #5C9210;
+}
+
+.Danger {
+  color: #944317;
+}

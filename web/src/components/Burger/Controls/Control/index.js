@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import IngredientContext from '../../../../context/IngredientsContext';
 
-import SmallIconBtn from '../../../SmallIconBtn';
+import SmallIconBtn from '../../../UI/SmallIconBtn';
 
 import styles from './styles.module.css';
 

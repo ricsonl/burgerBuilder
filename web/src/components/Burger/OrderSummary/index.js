@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
 import IngredientContext from '../../../context/IngredientsContext';
 
+import Button from '../../UI/Button';
+
+import styles from './styles.module.css';
+
 const OrderSummary = () => {
 
   const ingredientContext = useContext(IngredientContext);
@@ -21,6 +25,11 @@ const OrderSummary = () => {
       <ul>
         {ingSummary}
       </ul>
+      <p className={styles.Price}>Preço: <strong>R$ {ingredientContext.total.toFixed(2).toString().split('.').join(',')}</strong></p>
+      <div className={styles.Buttons}>
+        <Button type="Danger">Cancelar</Button>
+        <Button type="Success">Continuar</Button>
+      </div>
     </>
   );
 }
