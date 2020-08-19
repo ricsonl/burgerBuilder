@@ -5,12 +5,18 @@ import styles from './styles.module.css';
 
 const Modal = (props) => {
   return (
-    <div className={`${styles.Modal} ${props.finishing ? styles.Visible : null}`}>
-      <button onClick={props.toggleModal.bind(this, false)}>
-        <svg><use xlinkHref="#icon-arrow_back"></use></svg>
-      </button>
-      {props.children}
-    </div>
+    <>
+      <div
+        className={`${styles.Cover} ${props.finishing ? styles.CoverVisible : null}`}
+        onClick={props.toggleModal.bind(this, false)}
+      ></div>
+      <div className={`${styles.Modal} ${props.finishing ? styles.ModalVisible : null}`}>
+        <button onClick={props.toggleModal.bind(this, false)}>
+          <svg><use xlinkHref="#icon-arrow_back"></use></svg>
+        </button>
+        {props.children}
+      </div>
+    </>
   );
 }
 
