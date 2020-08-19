@@ -10,10 +10,10 @@ const Modal = (props) => {
     <>
       <div
         className={`${styles.Cover} ${props.finishing ? styles.CoverVisible : null}`}
-        onClick={props.toggleModal.bind(this, false)}
+        onClick={props.toggleModal}
       ></div>
       <div className={`${styles.Modal} ${props.finishing ? styles.ModalVisible : null}`}>
-        <SmallIconBtn icon="icon-arrow_back" clicked={props.toggleModal.bind(this, false)}/>
+        <SmallIconBtn icon="icon-arrow_back" clicked={props.toggleModal}/>
         {props.children}
       </div>
     </>

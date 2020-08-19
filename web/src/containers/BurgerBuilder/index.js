@@ -6,6 +6,7 @@ import Burger from '../../components/Burger';
 import Controls from '../../components/Burger/Controls';
 import Modal from '../../components/UI/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary';
+import Button from '../../components/UI/Button';
 
 import styles from './styles.module.css';
 
@@ -70,12 +71,16 @@ class BurgerBuilder extends Component {
           purchasable: this.state.purchasable,
         }}>
           <Burger />
-          <Controls toggleModal={this.handleToggleModal}/>
+          <Controls toggleModal={this.handleToggleModal.bind(this, true)} />
           <Modal
             finishing={this.state.finishing}
-            toggleModal={this.handleToggleModal}
+            toggleModal={this.handleToggleModal.bind(this, false)}
           >
             <OrderSummary />
+            <div className={styles.Buttons}>
+              <Button type="Danger" clicked={this.handleToggleModal.bind(this, false)}>Cancelar</Button>
+              <Button type="Success" clicked={this.handleToggleModal.bind(this, false)}>Continuar</Button>
+            </div>
           </Modal>
         </IngredientsContext.Provider>
       </section>

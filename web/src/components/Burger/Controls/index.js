@@ -25,7 +25,7 @@ const Controls = (props) => {
             '-,--'
           }
         </h1>
-        <button disabled={!ingredientsContext.purchasable} onClick={props.toggleModal.bind(this, true)}>
+        <button disabled={!ingredientsContext.purchasable} onClick={props.toggleModal}>
           <p>Continuar</p>
           <svg><use xlinkHref="#icon-arrow_back"></use></svg>
         </button>

@@ -18,3 +18,18 @@
     margin: 0 5%;
   }
 }
+.Buttons{
+  margin: 0 auto;
+  height: 120px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+@media (min-width:480px){
+  .Buttons{
+    width: 55%;
+    height: 10%;
+    flex-direction: row;
+  }
+}
