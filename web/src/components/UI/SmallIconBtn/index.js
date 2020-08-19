@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 
 const SmallIconBtn = (props) => {
   return (
-    <button onClick={props.clicked} className={styles.Button}>
+    <button onClick={props.clicked} className={`${styles.Button} ${props.iconClass}`}>
       <svg><use xlinkHref={`#${props.icon}`}></use></svg>
     </button>
   );
@@ -13,6 +13,7 @@ const SmallIconBtn = (props) => {
 
 SmallIconBtn.propTypes = {
   icon: PropTypes.string,
+  iconClass: PropTypes.string,
   clicked: PropTypes.func,
 }
 

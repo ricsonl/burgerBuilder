@@ -16,11 +16,8 @@
   display: flex;
   justify-content: space-between;
 }
-.Red{
-  color: #882323;
-}
-.Grey{
-  color: var(--grey);
+.Grey svg{
+  fill: var(--grey);
 }
 @media (min-width: 381px){
   .Control, .Buttons p{

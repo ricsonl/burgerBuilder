@@ -13,8 +13,16 @@ const Control = ({ label, name }) => {
   return (
     <div className={styles.Control}>
       <div className={styles.Buttons}>
-        <SmallIconBtn icon="icon-minus" clicked={ingredientContext.remove.bind(this, name)} />
-        <SmallIconBtn icon="icon-plus" clicked={ingredientContext.add.bind(this, name)} />
+        <SmallIconBtn 
+          icon="icon-minus"
+          iconClass={ingredientContext.ingredients[name] === 0 ? styles.Grey : null}
+          clicked={ingredientContext.remove.bind(this, name)}
+        />
+        <SmallIconBtn 
+          icon="icon-plus"
+          iconClass={ingredientContext.ingredients[name] === ingredientContext.max[name] ? styles.Grey : null} 
+          clicked={ingredientContext.add.bind(this, name)}
+        />
       </div>
       <label
         className={ingredientContext.ingredients[name] ===
