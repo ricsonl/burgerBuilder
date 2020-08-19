@@ -7,7 +7,8 @@ import styles from './styles.module.css';
 
 const Controls = () => {
 
-  const ingredientsContext = useContext(IngredientsContext)
+  const ingredientsContext = useContext(IngredientsContext);
+  const purchasable = Object.values(ingredientsContext.ingredients).reduce((sum, val) => sum + val, 0) > 0;
 
   const controls = [
     { label: 'Carne', name: 'meat' },
@@ -15,7 +16,7 @@ const Controls = () => {
     { label: 'Alface', name: 'salad' },
     { label: 'Bacon', name: 'bacon' },
   ];
-  console.log()
+
   return (
     <div className={styles.Controls}>
       {
@@ -23,23 +24,19 @@ const Controls = () => {
           return <Control key={ctrl.name} label={ctrl.label} name={ctrl.name} />
         })
       }
-      {
-        <div className={styles.PriceAndCheckout}>
-          {
-            (
-              Object.values(ingredientsContext.ingredients).reduce((sum, val) => sum + val, 0) > 0 &&
-              <>
-                <h1>R$ {ingredientsContext.total.toFixed(2).toString().split('.').join(',')}</h1>
-                <button>
-                  <p>Continuar</p>
-                  <svg><use xlinkHref="#icon-arrow_back"></use></svg>
-                </button>
-              </>
-            ) || <h1>R$ --,--</h1>
+      <div className={styles.PriceAndCheckout}>
+        <h1>
+          R$ {
+            purchasable ?
+            ingredientsContext.total.toFixed(2).toString().split('.').join(',') :
+            '-,--'
           }
-        </div>
-
-      }
+        </h1>
+        <button disabled={!purchasable} onClick={()=>console.log('aaa')}>
+          <p>Continuar</p>
+          <svg><use xlinkHref="#icon-arrow_back"></use></svg>
+        </button>
+      </div>
     </div>
   );
 };

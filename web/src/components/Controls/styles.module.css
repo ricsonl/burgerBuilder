@@ -21,8 +21,6 @@
   text-align: center;
 }
 .PriceAndCheckout button{
-  background-color: var(--green);
-  cursor: pointer;
   outline: none;
   border: none;
   border-radius: 8px;
@@ -35,8 +33,16 @@
 
   transition: background-color .2s ease-out;
 }
+.PriceAndCheckout button:enabled{
+  background-color: var(--green);
+  cursor: pointer;
+}
 .PriceAndCheckout button p{
-  transition: transform .2s ease-out;
+  transition: transform .2s ease-out,
+              color .2s ease-out;
+}
+.PriceAndCheckout button:disabled p{
+  color: var(--lighter-grey);
 }
 .PriceAndCheckout button svg{
   height: 25px;
@@ -50,13 +56,13 @@
               opacity .2s ease-out,
               position .2s ease-out;
 }
-.PriceAndCheckout button:hover{
+.PriceAndCheckout button:enabled:hover{
   background-color: var(--light-green);
 }
-.PriceAndCheckout button:hover p{
+.PriceAndCheckout button:enabled:hover p{
   transform: translateX(-12px);
 }
-.PriceAndCheckout button:hover svg{
+.PriceAndCheckout button:enabled:hover svg{
   transform: rotateZ(180deg);
   opacity: 1;
 }
