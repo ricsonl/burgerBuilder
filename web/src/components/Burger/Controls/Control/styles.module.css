@@ -22,23 +22,6 @@
 .Grey{
   color: var(--grey);
 }
-.Buttons button{
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font: 400 1.2rem Poppins;
-  transition: background-color .3s;
-}
-.Buttons button p{
-  margin: 0;
-}
-.Control button:hover{
-  background: var(--lighter-grey);
-}
 @media (min-width: 381px){
   .Control, .Buttons p{
     font-size: 1.3rem;

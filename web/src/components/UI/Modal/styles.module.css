@@ -28,33 +28,12 @@
     box-sizing: border-box;
     transition: transform .2s ease-out;
 }
+.Modal button{
+  position: absolute;
+}
 .Modal h3{
   text-align: center;
   margin: 0 auto;
-}
-.Modal button{
-  position: absolute;
-  cursor: pointer;
-  border-radius: 50%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  outline: none;
-  width: 35px;
-  height: 35px;
-  transition: background-color .2s;
-}
-.Modal button svg{
-  height: 22px;
-  width: 22px;
-  fill: var(--white);
-}
-.Modal button:hover{
-  background-color: var(--lighter-grey);
 }
 .ModalVisible{
   transform: translateY(0);

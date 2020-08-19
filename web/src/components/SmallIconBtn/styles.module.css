@@ -1,0 +1,23 @@
+.Button{
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 35px;
+  height: 35px;
+  transition: background-color .2s;
+}
+.Button svg{
+  height: 22px;
+  width: 22px;
+  fill: var(--white);
+}
+.Button:hover{
+  background-color: var(--lighter-grey);
+}

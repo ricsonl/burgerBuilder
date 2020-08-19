@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SmallIconBtn from '../../SmallIconBtn'
+
 import styles from './styles.module.css';
 
 const Modal = (props) => {
@@ -11,9 +13,7 @@ const Modal = (props) => {
         onClick={props.toggleModal.bind(this, false)}
       ></div>
       <div className={`${styles.Modal} ${props.finishing ? styles.ModalVisible : null}`}>
-        <button onClick={props.toggleModal.bind(this, false)}>
-          <svg><use xlinkHref="#icon-arrow_back"></use></svg>
-        </button>
+        <SmallIconBtn icon="icon-arrow_back" clicked={props.toggleModal.bind(this, false)}/>
         {props.children}
       </div>
     </>
