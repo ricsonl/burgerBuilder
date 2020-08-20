@@ -19,7 +19,7 @@ const OrderSummary = () => {
   return (
     <>
       <h3>Seu pedido</h3>
-      <p>Seu sanduíche possui os seguintes ingredientes:</p>
+      <p>Ingredientes:</p>
       <ul>
         {ingSummary}
       </ul>

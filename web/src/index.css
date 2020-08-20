@@ -15,7 +15,7 @@ body {
   overflow-x: hidden;
 
   background: radial-gradient(transparent -60%, var(--grey) 120%),
-              url('./assets/wood_back.jpg');  
+              url('./assets/images/wood_back.jpg');  
   background-size: cover;
   background-position: center;
   
