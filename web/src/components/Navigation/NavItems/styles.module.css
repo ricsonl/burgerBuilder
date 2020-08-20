@@ -1,0 +1,34 @@
+.NavItems{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.NavItem{
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.NavItem a{
+  color: var(--white);
+  text-decoration: none;
+  height: 100%;
+  padding: 16px 10px;
+  border-bottom: 3px solid transparent;
+  box-sizing: border-box;
+  display: block;
+}
+
+.NavItem a:active,
+.NavItem a.active{
+  background-color: var(--lighter-grey);
+  border-bottom: 3px solid var(--brown);
+}
+.NavItem a:hover{
+  background-color: var(--light-grey);
+}

@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SmallIconBtn from '../SmallIconBtn'
+import Backdrop from '../Backdrop';
 
 import styles from './styles.module.css';
 
 const Modal = (props) => {
   return (
     <>
-      <div
-        className={`${styles.Cover} ${props.finishing ? styles.CoverVisible : null}`}
-        onClick={props.toggleModal}
-      ></div>
+      <Backdrop visible={props.finishing} clicked={props.toggleModal.bind(this, false)} />
+      
       <div className={`${styles.Modal} ${props.finishing ? styles.ModalVisible : null}`}>
         <SmallIconBtn icon="icon-arrow_back" clicked={props.toggleModal}/>
         {props.children}
