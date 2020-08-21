@@ -6,11 +6,11 @@ import Backdrop from '../../UI/Backdrop';
 
 import styles from './styles.module.css';
 
-const SideDrawer = () => {
+const SideDrawer = (props) => {
   return (
     <>
-      <Backdrop visible/>
-      <div className={styles.SideDrawer}>
+      <Backdrop visible={props.open} clicked={props.closed}/>
+      <div className={`${styles.SideDrawer} ${props.open ? styles.Open : styles.Close}`}>
         <img src={logo} alt="Logo" />
         <nav>
           <NavItems />
