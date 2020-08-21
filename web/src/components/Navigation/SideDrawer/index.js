@@ -2,15 +2,21 @@ import React from 'react';
 
 import logo from '../../../assets/images/logo.png';
 import NavItems from '../NavItems';
+import Backdrop from '../../UI/Backdrop';
 
-const SideDrawer = (props) => {
-  return(
-      <div>
-        <img src={logo} alt="Logo"/>
+import styles from './styles.module.css';
+
+const SideDrawer = () => {
+  return (
+    <>
+      <Backdrop visible/>
+      <div className={styles.SideDrawer}>
+        <img src={logo} alt="Logo" />
         <nav>
           <NavItems />
         </nav>
       </div>
+    </>
   );
 }
 

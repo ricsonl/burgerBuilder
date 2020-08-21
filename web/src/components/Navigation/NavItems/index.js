@@ -1,27 +1,40 @@
-import React, { useContext, useState } from 'react';
-
-import NavContext, { NavProvider } from '../../../context/NavContext';
+import React, { Component } from 'react';
 
 import styles from './styles.module.css';
 
-const NavItems = () => {
+class NavItems extends Component {
 
-  const navContext = useContext(NavContext);
-  const [active, setActive] = useState(navContext.active);
+  state = {
+    labels: {
+      burgerBuilder: 'Burger Builder',
+      checkout: 'Checkout',
+    },
 
-  return (
-    <ul className={styles.NavItems}>
-      <li className={styles.NavItem}>
+    active: 'burgerBuilder',
+  }
+
+  handleChangeActive = (name) => {
+    this.setState({ active: name });
+  }
+
+  render() {
+    return (
+      <ul className={styles.NavItems}>
         {
-          Object.keys(navContext.labels).map(lab => {
-            return <a href="/" className={navContext.active === lab && styles.active}>
-              {navContext.labels[lab]}
-            </a>
+          Object.keys(this.state.labels).map(name => {
+            return <li className={styles.NavItem} key={name}>
+              <a href="/"
+                className={this.state.active === name ? styles.active : null}
+                onClick={this.handleChangeActive.bind(this, name)}
+              >
+                {this.state.labels[name]}
+              </a>
+            </li>
           })
         }
-      </li>
-    </ul>
-  );
+      </ul>
+    );
+  }
 }
 
 export default NavItems;
