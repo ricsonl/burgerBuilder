@@ -14,3 +14,9 @@
   z-index: 499;
   opacity: .6;
 }
+
+@media (min-width: 500px){
+  .Backdrop{
+    display: none;
+  }
+}

@@ -7,18 +7,21 @@ import styles from './styles.module.css';
 
 class Layout extends Component {
   state = {
-    showSideDrawer: true,
+    showSideDrawer: false,
   }
 
   handleCloseSideDrawer = () => {
     this.setState({ showSideDrawer: false});
   };
+  handleOpenSideDrawer = () => {
+    this.setState({ showSideDrawer: true});
+  };
 
   render(){
     return (
       <> 
-        <Toolbar />
-        <SideDrawer open={this.state.showSideDrawer} closed={this.handleCloseSideDrawer}/>
+        <Toolbar openSideDrawer={this.handleOpenSideDrawer} />
+        <SideDrawer opened={this.state.showSideDrawer} close={this.handleCloseSideDrawer} />
         <main className={styles.main}>
           {this.props.children}
         </main>
