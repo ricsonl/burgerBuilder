@@ -10,7 +10,7 @@ import styles from './styles.module.css';
 const SideDrawer = (props) => {
   return (
     <>
-      <Backdrop visible={props.opened} clicked={props.close}/>
+      <Backdrop visible={props.opened} clicked={props.close} mobileOnly />
       <div className={`${styles.SideDrawer} ${props.opened ? styles.Open : styles.Close}`}>
         <img src={logo} alt="Logo" />
         <nav>

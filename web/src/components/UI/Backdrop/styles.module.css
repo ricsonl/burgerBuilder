@@ -16,7 +16,7 @@
 }
 
 @media (min-width: 500px){
-  .Backdrop{
+  .Invisible{
     display: none;
   }
 }
