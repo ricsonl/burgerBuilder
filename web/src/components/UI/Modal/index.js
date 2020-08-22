@@ -10,9 +10,9 @@ const Modal = (props) => {
   return (
     <>
       <Backdrop visible={props.finishing} clicked={props.toggleModal.bind(this, false)} />
-      
+
       <div className={`${styles.Modal} ${props.finishing ? styles.ModalVisible : null}`}>
-        <SmallIconBtn icon="icon-arrow_back" clicked={props.toggleModal}/>
+        <SmallIconBtn icon="icon-arrow_back" clicked={props.toggleModal} />
         {props.children}
       </div>
     </>
@@ -24,4 +24,6 @@ Modal.propTypes = {
   toggleModal: PropTypes.func.isRequired,
 }
 
-export default Modal;
+export default React.memo(Modal, (prevProps, nextProps) => {
+  return prevProps.finishing == nextProps.finishing
+});
