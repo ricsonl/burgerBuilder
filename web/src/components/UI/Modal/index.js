@@ -25,5 +25,5 @@ Modal.propTypes = {
 }
 
 export default React.memo(Modal, (prevProps, nextProps) => {
-  return prevProps.finishing === nextProps.finishing
+  return prevProps.finishing === nextProps.finishing && prevProps.children === nextProps.children;
 });

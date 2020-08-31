@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from '../../axios-orders';
 
 import IngredientsContext from '../../context/IngredientsContext';
 
@@ -7,6 +8,7 @@ import Controls from '../../components/Burger/Controls';
 import Modal from '../../components/UI/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary';
 import Button from '../../components/UI/Button';
+import Spinner from '../../components/UI/Spinner';
 
 import styles from './styles.module.css';
 
@@ -26,6 +28,7 @@ class BurgerBuilder extends Component {
     purchasable: false,
 
     finishing: false,
+    loading: false,
   };
 
   addIngredient = (ing) => {
@@ -56,6 +59,30 @@ class BurgerBuilder extends Component {
     this.setState({ finishing: vis })
   }
 
+  handleContinue = () => {
+    this.setState({ loading: true });
+    const order = {
+      ingredients: this.state.ingredients,
+      price: this.state.total, // DO NOT DO THIS IN A REAL WORLD APP
+      customer: {
+        name: 'TestUser1',
+        email: 'TestEmail1@gmail.com',
+        address: {
+          street: 'TestStreet1',
+          zip: '11111',
+          country: 'TestCountry1',
+        }
+      }
+    }
+    axios.post('/orders.json', order)
+      .then(res => {
+        this.setState({ loading: false, finishing: false });
+      })
+      .catch(err => {
+        this.setState({ loading: false, finishing: false });
+      });
+  }
+
   render() {
     return (
       <section className={styles.BurgerBuilder}>
@@ -76,11 +103,18 @@ class BurgerBuilder extends Component {
             finishing={this.state.finishing}
             toggleModal={this.handleToggleModal.bind(this, false)}
           >
-            <OrderSummary />
-            <div className={styles.Buttons}>
-              <Button type="Danger" clicked={this.handleToggleModal.bind(this, false)}>Cancelar</Button>
-              <Button type="Success" clicked={this.handleToggleModal.bind(this, false)}>Continuar</Button>
-            </div>
+
+            {
+              this.state.loading ? <Spinner /> :
+                <>
+                  <OrderSummary />
+                  <div className={styles.Buttons}>
+                    <Button type="Danger" clicked={this.handleToggleModal.bind(this, false)}>Cancelar</Button>
+                    <Button type="Success" clicked={this.handleContinue.bind(this)}>Continuar</Button>
+                  </div>
+                </>
+            }
+
           </Modal>
         </IngredientsContext.Provider>
       </section>
