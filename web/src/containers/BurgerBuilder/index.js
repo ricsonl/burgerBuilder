@@ -9,6 +9,7 @@ import Modal from '../../components/UI/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary';
 import Button from '../../components/UI/Button';
 import Spinner from '../../components/UI/Spinner';
+import withErrorHandler from '../withErrorHandler';
 
 import styles from './styles.module.css';
 
@@ -100,7 +101,7 @@ class BurgerBuilder extends Component {
           <Burger />
           <Controls toggleModal={this.handleToggleModal.bind(this, true)} />
           <Modal
-            finishing={this.state.finishing}
+            show={this.state.finishing}
             toggleModal={this.handleToggleModal.bind(this, false)}
           >
 
@@ -122,4 +123,4 @@ class BurgerBuilder extends Component {
   }
 };
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, axios);

@@ -9,9 +9,9 @@ import styles from './styles.module.css';
 const Modal = (props) => {
   return (
     <>
-      <Backdrop visible={props.finishing} clicked={props.toggleModal.bind(this, false)} />
+      <Backdrop visible={props.show} clicked={props.toggleModal.bind(this, false)} />
 
-      <div className={`${styles.Modal} ${props.finishing ? styles.ModalVisible : null}`}>
+      <div className={`${styles.Modal} ${props.show ? styles.ModalVisible : null}`}>
         <SmallIconBtn icon="icon-arrow_back" clicked={props.toggleModal} />
         {props.children}
       </div>
@@ -20,10 +20,10 @@ const Modal = (props) => {
 }
 
 Modal.propTypes = {
-  finishing: PropTypes.bool.isRequired,
-  toggleModal: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
+  toggleModal: PropTypes.func
 }
 
 export default React.memo(Modal, (prevProps, nextProps) => {
-  return prevProps.finishing === nextProps.finishing && prevProps.children === nextProps.children;
+  return prevProps.show === nextProps.show && prevProps.children === nextProps.children;
 });
